@@ -1,60 +1,67 @@
-item.hammerWood.name=木锤
-item.hammerStone.name=石锤
-item.hammerIron.name=铁锤
-item.hammerGold.name=金锤
-item.hammerDiamond.name=金锤
+item.hammer_wood.name=木锤
+item.hammer_stone.name=石锤
+item.hammer_iron.name=铁锤
+item.hammer_gold.name=金锤
+item.hammer_diamond.name=钻石锤
 
-item.crookWood.name=木钩
-item.crookBone.name=骨钩
+item.crook_wood.name=木钩
+item.crook_bone.name=骨钩
 
-item.itemPebble.stone.name=圆石石子儿
-item.itemPebble.granite.name=花岗岩石子儿
-item.itemPebble.diorite.name=闪长岩石子儿
-item.itemPebble.andesite.name=安山岩石子儿
+item.item_pebble.stone.name=圆石石子
+item.item_pebble.granite.name=花岗岩石子
+item.item_pebble.diorite.name=闪长岩石子
+item.item_pebble.andesite.name=安山岩石子
 
-item.itemMaterial.removed.name=已从Mod中移除
-item.itemMaterial.porcelain_clay.name=瓷土
-item.itemMaterial.silkworm.name=蚕
-item.itemMaterial.grass_seeds.name=草种子
-item.itemMaterial.ancient_spores.name=古代孢子
-item.itemMaterial.doll.name=珍贵人偶
+item.item_material.removed.name=已从Mod中移除
+item.item_material.porcelain_clay.name=瓷土
+item.item_material.silkworm.name=蚕
+item.item_material.grass_seeds.name=草种子
+item.item_material.ancient_spores.name=古代孢子
+item.item_material.doll.name=珍贵人偶
+item.item_material.rod_stone.name=石棍
+item.item_material.gear_stone.name=石齿轮
 
-item.itemDoll.blaze.name=愤怒人偶
-item.itemDoll.enderman.name=惊悚人偶
+item.item_doll.blaze.name=炽热人偶
+item.item_doll.enderman.name=惊悚人偶
 
-item.silkwormCooked.name=煮熟的蚕
+item.item_cooked_silkworm.name=煮熟的蚕
 
-item.itemSeedBirch.name=白桦木种子
-item.itemSeedOak.name=橡木种子
-item.itemSeedJungle.name=从林木种子
-item.itemSeedAcacia.name=金合欢木种子
-item.itemSeedSpruce.name=云杉木种子
-item.itemSeedCarrot.name=胡萝卜种子
-item.itemSeedPotato.name=马铃薯种子
-item.itemSeedSugarcane.name=甘蔗种子
-item.itemSeedCactus.name=仙人掌种子
-item.itemSeedDarkOak.name=黑色橡木种子
+item.item_seed_birch.name=白桦木种子
+item.item_seed_oak.name=橡木种子
+item.item_seed_jungle.name=从林木种子
+item.item_seed_acacia.name=金合欢木种子
+item.item_seed_spruce.name=云杉木种子
+item.item_seed_carrot.name=胡萝卜种子
+item.item_seed_potato.name=马铃薯种子
+item.item_seed_sugarcane.name=甘蔗种子
+item.item_seed_cactus.name=仙人掌种子
+item.item_seed_darkoak.name=深色橡木种子
 
-tile.blockDust.name=尘土
-tile.blockNetherrackCrushed.name=粉碎的地狱岩
-tile.blockEndstoneCrushed.name=粉碎的末地石
+tile.block_dust.name=尘土
+tile.block_netherrack_crushed.name=粉碎的地狱岩
+tile.block_endstone_crushed.name=粉碎的末地石
 
-tile.blockBarrel0.name=木桶
-tile.blockBarrel1.name=石桶
+tile.block_barrel0.name=木桶
+tile.block_barrel1.name=石桶
 
-tile.blockCrucible.0.name=坩埚(未烧制)
-tile.blockCrucible.1.name=坩埚
+tile.block_crucible.0.name=坩埚(未烧制)
+tile.block_crucible.1.name=坩埚
 
-tile.blockInfestedLeaves.name=被感染的树叶
+tile.block_infested_leaves.name=被感染的树叶
 
-tile.blockSieve.name=筛子
-item.itemMesh.1.name=筛网
-item.itemMesh.2.name=燧石硬化网
-item.itemMesh.3.name=铁质硬化网
-item.itemMesh.4.name=钻石硬化网
+tile.block_auto_sifter.name=自动筛制机
+tile.block_axle_stone.name=石传动轴
+tile.block_grinder.name=粉碎研磨机[WIP！无法合成！]
+tile.block_waterwheel.name=水车
 
-orepiece.name=矿石碎片
-orehunk.name=矿石块
+tile.block_sieve.name=筛子
+item.item_mesh.1.name=筛网
+item.item_mesh.2.name=燧石硬化网
+item.item_mesh.3.name=铁质硬化网
+item.item_mesh.4.name=钻石硬化网
+
+orepiece.name=矿物碎片
+orehunk.name=矿物碎块
 oredust.name=矿尘
 oreingot.name=锭
 
@@ -71,7 +78,11 @@ jei.hammer.hammerLevel.4=最高等级
 
 commands.enreloadconfig.confirm=Ex Nihilo配置重载
 
+itemGroup.exNihilo=Ex Nihilo Creatio
+
 modifier.exnihilo_smashing.name=粉碎
 modifier.exnihilo_smashing.desc=§rSmashing baby, yeaaah!\n§r把东西砸碎
 
 enchantment.sieveEfficiency=筛子效率
+enchantment.sieveFortune=筛子时运
+enchantment.sieveLuckOfTheSea=筛子海之眷顾
