@@ -17,4 +17,7 @@ public class FluidItemFluid {
 
     @Getter
     private String output;
+
+    @Getter
+    private int amount;
 }

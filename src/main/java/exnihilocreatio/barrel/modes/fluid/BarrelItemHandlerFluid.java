@@ -58,13 +58,15 @@ public class BarrelItemHandlerFluid extends ItemStackHandler {
 
         }
 
-        String fluidItemFluidOutput = ExNihiloRegistryManager.FLUID_ITEM_FLUID_REGISTRY.getFLuidForTransformation(tank.getFluid().getFluid(), stack);
+        String fluidItemFluidOutput = ExNihiloRegistryManager.FLUID_ITEM_FLUID_REGISTRY.getFluidForTransformation(tank.getFluid().getFluid(), stack);
         if (fluidItemFluidOutput != null && tank.getFluidAmount() == tank.getCapacity()) {
             if (!simulate) {
+                int flfAmount = ExNihiloRegistryManager.FLUID_ITEM_FLUID_REGISTRY.getAmountFromTransformation(tank.getFluid().getFluid(), stack);
+
                 tank.drain(tank.getCapacity(), true);
                 barrel.setMode("fluid");
                 PacketHandler.sendToAllAround(new MessageBarrelModeUpdate("block", barrel.getPos()), barrel);
-                tank.fill(FluidRegistry.getFluidStack(fluidItemFluidOutput, tank.getCapacity()),true);
+                tank.fill(FluidRegistry.getFluidStack(fluidItemFluidOutput, flfAmount),true);
                 PacketHandler.sendNBTUpdate(barrel);
             }
             ItemStack ret = stack.copy();

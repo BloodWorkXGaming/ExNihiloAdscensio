@@ -25,12 +25,12 @@ public class FluidItemFluidRegistry extends BaseRegistryList<FluidItemFluid> {
         );
     }
 
-    public void register(String inputFluid, ItemInfo reactant, String outputFluid) {
-        registry.add(new FluidItemFluid(inputFluid, reactant, outputFluid));
+    public void register(String inputFluid, ItemInfo reactant, String outputFluid, int amount) {
+        registry.add(new FluidItemFluid(inputFluid, reactant, outputFluid, amount));
     }
 
-    public void register(Fluid inputFluid, ItemInfo reactant, Fluid outputFluid) {
-        registry.add(new FluidItemFluid(inputFluid.getName(), reactant, outputFluid.getName()));
+    public void register(Fluid inputFluid, ItemInfo reactant, Fluid outputFluid, int amount) {
+        registry.add(new FluidItemFluid(inputFluid.getName(), reactant, outputFluid.getName(), amount));
     }
 
     public boolean canFluidBeTransformedWithThisItem(Fluid fluid, ItemStack stack) {
@@ -43,7 +43,7 @@ public class FluidItemFluidRegistry extends BaseRegistryList<FluidItemFluid> {
         return false;
     }
 
-    public String getFLuidForTransformation(Fluid fluid, ItemStack stack) {
+    public String getFluidForTransformation(Fluid fluid, ItemStack stack) {
         ItemInfo info = ItemInfo.getItemInfoFromStack(stack);
 
         for (FluidItemFluid transformer : registry) {
@@ -53,6 +53,18 @@ public class FluidItemFluidRegistry extends BaseRegistryList<FluidItemFluid> {
         }
 
         return null;
+    }
+
+    public int getAmountFromTransformation(Fluid fluid, ItemStack stack) {
+        ItemInfo info = ItemInfo.getItemInfoFromStack(stack);
+
+        for (FluidItemFluid transformer : registry) {
+            if (fluid.getName().equals(transformer.getInputFluid()) && info.equals(transformer.getReactant())) {
+                return transformer.getAmount();
+            }
+        }
+
+        return 0;
     }
 
     @Override
