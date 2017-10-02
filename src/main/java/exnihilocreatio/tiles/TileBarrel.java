@@ -265,8 +265,10 @@ public class TileBarrel extends BaseTileEntity implements ITickable {
         Milkable milk = ExNihiloRegistryManager.MILK_ENTITY_REGISTRY.getMilkable(entityIn);
         if(milk == null) return; // Not a valid recipe
 
-        // Attempt to add the fluid.
-        this.tank.fill(new FluidStack(FluidRegistry.getFluid(milk.getResult()), milk.getAmount()), true);
+        // Attempt to add the fluid if it is a valid fluid
+        Fluid result = FluidRegistry.getFluid(milk.getResult());
+        if(result != null)
+            this.tank.fill(new FluidStack(result, milk.getAmount()), true);
 
         //Set the new cooldown time
         this.entityWalkCooldown = currentTime + milk.getCoolDown();
