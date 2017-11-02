@@ -16,6 +16,7 @@ import exnihilocreatio.util.BlockInfo;
 import exnihilocreatio.util.ItemInfo;
 import exnihilocreatio.util.Util;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -35,6 +36,11 @@ public class ExNihiloDefaultRecipes {
     @Nullable
     @ObjectHolder("appliedenergistics2:material")
     public static final Item AE_MATERIAL = null; //SkyStone dust == 45
+
+    // Integrated Dynamics Support
+    @Nullable
+    @ObjectHolder("integrateddynamics:menril_sapling")
+    public static final Item MENRIL_SAPLING = null;
 
     public static void registerDefaults() {
         ExNihiloRegistryManager.registerSieveDefaultRecipeHandler(new SieveDefaults());
@@ -238,6 +244,13 @@ public class ExNihiloDefaultRecipes {
                 registry.register(ModBlocks.netherrackCrushed.getDefaultState(), new ItemStack(cobalt, 1, 0), 0.3f, MeshType.DIAMOND.getID());
             }
 
+            // Mekanism Support
+            ItemOre osmium = oreRegistry.getOreItem("osmium");
+            if (osmium != null) {
+                registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(osmium, 1, 0), 0.05f, MeshType.IRON.getID());
+                registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(osmium, 1, 0), 0.1f, MeshType.DIAMOND.getID());
+            }
+
             // All default Ores
             for (ItemOre ore : oreRegistry.getItemOreRegistry()) {
                 if (ore == ardite || ore == cobalt) continue;
@@ -263,6 +276,29 @@ public class ExNihiloDefaultRecipes {
                 registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(AE_MATERIAL, 1, 45), 0.3f, MeshType.DIAMOND.getID());
             }
 
+            // Integrated Dynamics Support
+            if (MENRIL_SAPLING != null){
+                // TODO: Consider instead using witch water to mutate a normal sapling into a menril sapling.
+                registry.register(Blocks.DIRT.getDefaultState(), new ItemStack(MENRIL_SAPLING, 1, 0), 0.02f, MeshType.DIAMOND.getID());
+                registry.register(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT), new ItemStack(MENRIL_SAPLING, 1, 0), 0.1f, MeshType.DIAMOND.getID());
+            }
+
+            if (Loader.isModLoaded("appliedenergistics2")){
+                Block b = ModBlocks.skystoneCrushed;
+                // Certus Quartz
+                ItemStack stack = new ItemStack(Item.getByNameOrId("appliedenergistics2:material"), 1, 0);
+                registry.register(b.getDefaultState(), stack, 0.01f, MeshType.IRON.getID());
+                registry.register(b.getDefaultState(), stack, 0.02f, MeshType.DIAMOND.getID());
+                // Pure Certus Quartz Seed
+                stack = new ItemStack(Item.getByNameOrId("appliedenergistics2:crystal_seed"), 1, 0);
+                registry.register(b.getDefaultState(), stack, 0.01f, MeshType.STRING.getID());
+                registry.register(b.getDefaultState(), stack, 0.01f, MeshType.FLINT.getID());
+                registry.register(b.getDefaultState(), stack, 0.02f, MeshType.IRON.getID());
+                registry.register(b.getDefaultState(), stack, 0.02f, MeshType.DIAMOND.getID());
+                // Charged Certus Quartz
+                stack = new ItemStack(Item.getByNameOrId("appliedenergistics2:material"), 1, 1);
+                registry.register(b.getDefaultState(), stack, 0.001f, MeshType.DIAMOND.getID());
+            }
         }
     }
 
@@ -280,6 +316,13 @@ public class ExNihiloDefaultRecipes {
             registry.register(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.ANDESITE), new ItemStack(ModItems.pebbles, 1, EnumPebbleSubtype.ANDESITE.getMeta()), 1, 3F, 1.25F);
             registry.register(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.GRANITE), new ItemStack(ModItems.pebbles, 1, EnumPebbleSubtype.GRANITE.getMeta()), 1, 3F, 1.25F);
             registry.register(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.DIORITE), new ItemStack(ModItems.pebbles, 1, EnumPebbleSubtype.DIORITE.getMeta()), 1, 3F, 1.25F);
+
+
+
+            if (Loader.isModLoaded("appliedenergistics2")){
+                registry.register(Block.getBlockFromName("appliedenergistics2:sky_stone_block").getDefaultState(), new ItemStack(ModBlocks.skystoneCrushed, 1), 0, 1.0F, 0.0F);
+
+            }
         }
     }
 
@@ -350,6 +393,11 @@ public class ExNihiloDefaultRecipes {
             if (tconstructIngots != null) {
                 registry.register("ardite", new Color("FF751A"), new ItemInfo(tconstructIngots, 1));
                 registry.register("cobalt", new Color("3333FF"), new ItemInfo(tconstructIngots, 0));
+            }
+
+            // Mekanism Support
+            if (Loader.isModLoaded("mekanism")) {
+                registry.register("osmium", new Color("BBDDFF"), null);
             }
         }
     }

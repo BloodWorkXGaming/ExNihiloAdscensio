@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -19,6 +20,7 @@ public class ModBlocks {
     public static final BlockBaseFalling dust;
     public static final BlockBaseFalling netherrackCrushed;
     public static final BlockBaseFalling endstoneCrushed;
+    public static BlockBaseFalling skystoneCrushed = null;
     public static final BlockBarrel barrelWood;
     public static final BlockBarrel barrelStone;
     public static final BlockInfestedLeaves infestedLeaves;
@@ -45,6 +47,12 @@ public class ModBlocks {
         endstoneCrushed = new BlockBaseFalling(SoundType.GROUND, "block_endstone_crushed");
         endstoneCrushed.setCreativeTab(ExNihiloCreatio.tabExNihilo);
         endstoneCrushed.setHardness(0.7F);
+
+        if(Loader.isModLoaded("appliedenergistics2")){
+            skystoneCrushed = new BlockBaseFalling(SoundType.GROUND, "block_skystone_crushed");
+            skystoneCrushed.setCreativeTab(ExNihiloCreatio.tabExNihilo);
+            skystoneCrushed.setHardness(0.7F);
+        }
 
         barrelWood = new BlockBarrel(0, Material.WOOD);
         barrelWood.setCreativeTab(ExNihiloCreatio.tabExNihilo);
