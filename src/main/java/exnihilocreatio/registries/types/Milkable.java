@@ -1,5 +1,5 @@
 package exnihilocreatio.registries.types;
-import exnihilocreatio.util.BlockInfo;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 

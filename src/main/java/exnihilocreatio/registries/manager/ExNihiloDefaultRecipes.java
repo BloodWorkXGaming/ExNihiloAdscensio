@@ -9,14 +9,13 @@ import exnihilocreatio.items.ItemPebble;
 import exnihilocreatio.items.ItemResource;
 import exnihilocreatio.items.ore.ItemOre;
 import exnihilocreatio.items.seeds.ItemSeedBase;
+import exnihilocreatio.registries.manager.compat.CompatRegistryDefaults;
 import exnihilocreatio.registries.registries.*;
 import exnihilocreatio.registries.types.Meltable;
 import exnihilocreatio.texturing.Color;
 import exnihilocreatio.util.BlockInfo;
 import exnihilocreatio.util.ItemInfo;
 import exnihilocreatio.util.Util;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -25,22 +24,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.oredict.OreDictionary;
-
-import javax.annotation.Nullable;
 
 
 public class ExNihiloDefaultRecipes {
+    private static CompatRegistryDefaults compat = new CompatRegistryDefaults();
 
-    @Nullable
-    @ObjectHolder("appliedenergistics2:material")
-    public static final Item AE_MATERIAL = null; //SkyStone dust == 45
-
-    // Integrated Dynamics Support
-    @Nullable
-    @ObjectHolder("integrateddynamics:menril_sapling")
-    public static final Item MENRIL_SAPLING = null;
 
     public static void registerDefaults() {
         ExNihiloRegistryManager.registerSieveDefaultRecipeHandler(new SieveDefaults());
@@ -148,6 +137,8 @@ public class ExNihiloDefaultRecipes {
             registry.register(Items.NETHER_WART, 0, 0.10f, dirtState, new Color("FF2B52"));
             registry.register(Items.REEDS, 0, 0.08f, dirtState, new Color("9BFF8A"));
             registry.register(Items.STRING, 0, 0.04f, dirtState, Util.whiteColor);
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -156,6 +147,8 @@ public class ExNihiloDefaultRecipes {
         public void registerRecipeDefaults(CrookRegistry registry) {
             registry.register(new BlockInfo(Blocks.LEAVES, -1), ItemResource.getResourceStack(ItemResource.SILKWORM), 0.1f, 0f);
             registry.register(new BlockInfo(Blocks.LEAVES2, -1), ItemResource.getResourceStack(ItemResource.SILKWORM), 0.1f, 0f);
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -268,37 +261,7 @@ public class ExNihiloDefaultRecipes {
             registry.register(Blocks.DIRT.getDefaultState(), ItemResource.getResourceStack(ItemResource.ANCIENT_SPORES), 0.05f, MeshType.STRING.getID());
             registry.register(Blocks.DIRT.getDefaultState(), ItemResource.getResourceStack(ItemResource.GRASS_SEEDS), 0.05f, MeshType.STRING.getID());
 
-            // SkyStone dust
-            //noinspection ConstantConditions
-            if (AE_MATERIAL != null) {
-                registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(AE_MATERIAL, 1, 45), 0.1f, MeshType.FLINT.getID());
-                registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(AE_MATERIAL, 1, 45), 0.2f, MeshType.IRON.getID());
-                registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(AE_MATERIAL, 1, 45), 0.3f, MeshType.DIAMOND.getID());
-            }
-
-            // Integrated Dynamics Support
-            if (MENRIL_SAPLING != null){
-                // TODO: Consider instead using witch water to mutate a normal sapling into a menril sapling.
-                registry.register(Blocks.DIRT.getDefaultState(), new ItemStack(MENRIL_SAPLING, 1, 0), 0.02f, MeshType.DIAMOND.getID());
-                registry.register(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT), new ItemStack(MENRIL_SAPLING, 1, 0), 0.1f, MeshType.DIAMOND.getID());
-            }
-
-            if (Loader.isModLoaded("appliedenergistics2")){
-                Block b = ModBlocks.skystoneCrushed;
-                // Certus Quartz
-                ItemStack stack = new ItemStack(Item.getByNameOrId("appliedenergistics2:material"), 1, 0);
-                registry.register(b.getDefaultState(), stack, 0.01f, MeshType.IRON.getID());
-                registry.register(b.getDefaultState(), stack, 0.02f, MeshType.DIAMOND.getID());
-                // Pure Certus Quartz Seed
-                stack = new ItemStack(Item.getByNameOrId("appliedenergistics2:crystal_seed"), 1, 0);
-                registry.register(b.getDefaultState(), stack, 0.01f, MeshType.STRING.getID());
-                registry.register(b.getDefaultState(), stack, 0.01f, MeshType.FLINT.getID());
-                registry.register(b.getDefaultState(), stack, 0.02f, MeshType.IRON.getID());
-                registry.register(b.getDefaultState(), stack, 0.02f, MeshType.DIAMOND.getID());
-                // Charged Certus Quartz
-                stack = new ItemStack(Item.getByNameOrId("appliedenergistics2:material"), 1, 1);
-                registry.register(b.getDefaultState(), stack, 0.001f, MeshType.DIAMOND.getID());
-            }
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -317,12 +280,7 @@ public class ExNihiloDefaultRecipes {
             registry.register(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.GRANITE), new ItemStack(ModItems.pebbles, 1, EnumPebbleSubtype.GRANITE.getMeta()), 1, 3F, 1.25F);
             registry.register(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.DIORITE), new ItemStack(ModItems.pebbles, 1, EnumPebbleSubtype.DIORITE.getMeta()), 1, 3F, 1.25F);
 
-
-
-            if (Loader.isModLoaded("appliedenergistics2")){
-                registry.register(Block.getBlockFromName("appliedenergistics2:sky_stone_block").getDefaultState(), new ItemStack(ModBlocks.skystoneCrushed, 1), 0, 1.0F, 0.0F);
-
-            }
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -336,6 +294,8 @@ public class ExNihiloDefaultRecipes {
             registry.register(new BlockInfo(Blocks.LAVA, -1), 3);
             registry.register(new BlockInfo(Blocks.FIRE, -1), 4);
             registry.register(new BlockInfo(Blocks.TORCH, -1), 1);
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -346,6 +306,7 @@ public class ExNihiloDefaultRecipes {
             registry.register(ModBlocks.barrelWood.getTier(), "fire_water");
             registry.register(ModBlocks.barrelWood.getTier(), "rocket_fuel");
 
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -354,6 +315,8 @@ public class ExNihiloDefaultRecipes {
         public void registerRecipeDefaults(FluidOnTopRegistry registry) {
             registry.register(FluidRegistry.LAVA, FluidRegistry.WATER, new ItemInfo(Blocks.OBSIDIAN.getDefaultState()));
             registry.register(FluidRegistry.WATER, FluidRegistry.LAVA, new ItemInfo(Blocks.COBBLESTONE.getDefaultState()));
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -395,10 +358,7 @@ public class ExNihiloDefaultRecipes {
                 registry.register("cobalt", new Color("3333FF"), new ItemInfo(tconstructIngots, 0));
             }
 
-            // Mekanism Support
-            if (Loader.isModLoaded("mekanism")) {
-                registry.register("osmium", new Color("BBDDFF"), null);
-            }
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -406,6 +366,8 @@ public class ExNihiloDefaultRecipes {
         @Override
         public void registerRecipeDefaults(FluidTransformRegistry registry) {
             registry.register("water", "witchwater", 12000, new BlockInfo[]{new BlockInfo(Blocks.MYCELIUM.getDefaultState())}, new BlockInfo[]{new BlockInfo(Blocks.BROWN_MUSHROOM.getDefaultState()), new BlockInfo(Blocks.RED_MUSHROOM.getDefaultState())});
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -417,14 +379,7 @@ public class ExNihiloDefaultRecipes {
             registry.register(FluidRegistry.LAVA, new ItemInfo(new ItemStack(Items.GLOWSTONE_DUST)), new ItemInfo(new ItemStack(Blocks.END_STONE)));
             registry.register(ModFluids.fluidWitchwater, new ItemInfo(new ItemStack(Blocks.SAND)), new ItemInfo(new ItemStack(Blocks.SOUL_SAND)));
 
-            if (Loader.isModLoaded("appliedenergistics2")){
-                Block skystoneBlock = Block.getBlockFromName("appliedenergistics2:sky_stone_block");
-                //noinspection ConstantConditions
-                if (skystoneBlock != null && AE_MATERIAL != null){
-                    registry.register(FluidRegistry.LAVA, new ItemInfo(AE_MATERIAL,  45), new ItemInfo(skystoneBlock, 0));
-                }
-            }
-
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -432,6 +387,8 @@ public class ExNihiloDefaultRecipes {
         @Override
         public void registerRecipeDefaults(FluidItemFluidRegistry registry) {
             registry.register(FluidRegistry.WATER, new ItemInfo(ItemResource.getResourceStack(ItemResource.ANCIENT_SPORES)), ModFluids.fluidWitchwater);
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 
@@ -440,6 +397,8 @@ public class ExNihiloDefaultRecipes {
         @Override
         public void registerRecipeDefaults(CrucibleRegistry registry) {
             registry.register(new ItemStack(Blocks.COBBLESTONE), FluidRegistry.LAVA, 250);
+
+            compat.registerRecipeDefaultsStone(registry);
         }
     }
 
@@ -462,6 +421,8 @@ public class ExNihiloDefaultRecipes {
             registry.register(new ItemInfo(Blocks.SAPLING, 5), water.copy().setTextureOverride(new BlockInfo(Blocks.LEAVES2, 1)));
 
             registry.register(new ItemInfo(Items.APPLE, 0), water);
+
+            compat.registerRecipeDefaultsWood(registry);
         }
     }
 
@@ -469,6 +430,8 @@ public class ExNihiloDefaultRecipes {
         @Override
         public void registerRecipeDefaults(MilkEntityRegistry registry) {
             registry.register("Cow", "milk", 10, 20);
+
+            compat.registerRecipeDefaults(registry);
         }
     }
 }

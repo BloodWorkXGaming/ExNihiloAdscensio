@@ -20,3 +20,8 @@ The core concepts remain the same, but with a few key additions to give a little
 * The Broken/Crushed/Powdered Ore system has been replaced with a simple "Piece / Chunk" system. I felt like the old system served as nothing more than a nuisance, and ended up with something like this anyway.
 
 Most importantly, from a developers perspective, the entire backend is powered by JSON. This means almost everything is configurable, allowing you to set up the mod as you see fit. This means no more reliance on MineTweaker/ModTweaker.
+
+## License
+Ex Nihilo Creatio is licensed under to MIT license (see the license file)
+
+The Cushed Sky Stone texture is derived from the Sky Stone texture in [Applied Energistics 2](https://github.com/AppliedEnergistics/Applied-Energistics-2), and is thus licensed under CC-BY-NC-SA 3.0. The original texture was created by AlgorithmX2 et al. And is used with attribution in line with the license.

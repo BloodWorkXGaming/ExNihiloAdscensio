@@ -42,6 +42,7 @@ item.item_seed_darkoak.name=Dark Oak Seed
 tile.block_dust.name=Dust
 tile.block_netherrack_crushed.name=Crushed Netherrack
 tile.block_endstone_crushed.name=Crushed Endstone
+tile.block_skystone_crushed.name=Crushed Sky Stone
 
 tile.block_barrel0.name=Wooden Barrel
 tile.block_barrel1.name=Stone Barrel
