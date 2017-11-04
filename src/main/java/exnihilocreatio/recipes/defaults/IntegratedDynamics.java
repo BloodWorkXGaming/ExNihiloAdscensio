@@ -1,4 +1,4 @@
-package exnihilocreatio.registries.manager.compat;
+package exnihilocreatio.recipes.defaults;
 
 import exnihilocreatio.blocks.BlockSieve.MeshType;
 import exnihilocreatio.registries.registries.SieveRegistry;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
 
-public class IntegratedDynamicsRegistryDefaults implements ICompatRegistryDefaults {
+public class IntegratedDynamics implements IRecipeDefaults {
     @Getter
     public String MODID = "integrateddynamics";
 
@@ -20,7 +20,7 @@ public class IntegratedDynamicsRegistryDefaults implements ICompatRegistryDefaul
     @GameRegistry.ObjectHolder("integrateddynamics:menril_sapling")
     public static final Item MENRIL_SAPLING = null;
 
-    public IntegratedDynamicsRegistryDefaults(){
+    public IntegratedDynamics(){
 
     }
 

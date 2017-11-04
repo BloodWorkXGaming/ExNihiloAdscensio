@@ -1,4 +1,4 @@
-package exnihilocreatio.registries.manager.compat;
+package exnihilocreatio.recipes.defaults;
 
 import exnihilocreatio.ModBlocks;
 import exnihilocreatio.blocks.BlockSieve.MeshType;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
 
-public class AE2RegistryDefaults implements ICompatRegistryDefaults {
+public class AppliedEnergistics2 implements IRecipeDefaults {
     @Getter
     public String MODID = "appliedenergistics2";
 
@@ -33,7 +33,7 @@ public class AE2RegistryDefaults implements ICompatRegistryDefaults {
     @GameRegistry.ObjectHolder("appliedenergistics2:sky_stone_block")
     public static final Block SKY_STONE = null;
 
-    public AE2RegistryDefaults(){
+    public AppliedEnergistics2(){
 
     }
 

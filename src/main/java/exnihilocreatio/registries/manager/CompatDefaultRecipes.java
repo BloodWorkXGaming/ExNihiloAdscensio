@@ -1,23 +1,26 @@
-package exnihilocreatio.registries.manager.compat;
+package exnihilocreatio.registries.manager;
 
+import exnihilocreatio.recipes.defaults.*;
 import exnihilocreatio.registries.registries.*;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompatRegistryDefaults {
-    private static List<ICompatRegistryDefaults> MODS = new ArrayList<ICompatRegistryDefaults>();
+public class CompatDefaultRecipes {
+    private static List<IRecipeDefaults> MODS = new ArrayList<IRecipeDefaults>();
     static {
         // TODO use config options to dynamically add mod support
         // TODO consider making the default Ex Nihilo recipes use this same programatic method.
-        MODS.add(new AE2RegistryDefaults());
-        MODS.add(new IntegratedDynamicsRegistryDefaults());
-        MODS.add(new MekanismRegistryDefaults());
+        MODS.add(new AppliedEnergistics2());
+        MODS.add(new IntegratedDynamics());
+        MODS.add(new Mekanism());
+        MODS.add(new ExtremeReactors());
+        MODS.add(new ActuallyAdditions());
     }
 
     public void registerRecipeDefaults(CompostRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -25,7 +28,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(CrookRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -33,7 +36,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(SieveRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -41,7 +44,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(HammerRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -49,7 +52,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(HeatRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -57,7 +60,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(BarrelLiquidBlacklistRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -65,7 +68,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(FluidOnTopRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -73,7 +76,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(OreRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -81,7 +84,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(FluidTransformRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -89,7 +92,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(FluidBlockTransformerRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -97,7 +100,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(FluidItemFluidRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }
@@ -105,7 +108,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaultsStone(CrucibleRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaultsStone(registry);
             }
@@ -113,7 +116,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaultsWood(CrucibleRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaultsWood(registry);
             }
@@ -122,7 +125,7 @@ public class CompatRegistryDefaults {
     }
 
     public void registerRecipeDefaults(MilkEntityRegistry registry) {
-        for(ICompatRegistryDefaults mod : MODS){
+        for(IRecipeDefaults mod : MODS){
             if(Loader.isModLoaded(mod.getMODID())){
                 mod.registerRecipeDefaults(registry);
             }

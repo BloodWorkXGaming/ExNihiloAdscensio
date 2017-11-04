@@ -9,7 +9,6 @@ import exnihilocreatio.items.ItemPebble;
 import exnihilocreatio.items.ItemResource;
 import exnihilocreatio.items.ore.ItemOre;
 import exnihilocreatio.items.seeds.ItemSeedBase;
-import exnihilocreatio.registries.manager.compat.CompatRegistryDefaults;
 import exnihilocreatio.registries.registries.*;
 import exnihilocreatio.registries.types.Meltable;
 import exnihilocreatio.texturing.Color;
@@ -28,7 +27,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 
 public class ExNihiloDefaultRecipes {
-    private static CompatRegistryDefaults compat = new CompatRegistryDefaults();
+    private static CompatDefaultRecipes compat = new CompatDefaultRecipes();
 
 
     public static void registerDefaults() {
@@ -237,17 +236,10 @@ public class ExNihiloDefaultRecipes {
                 registry.register(ModBlocks.netherrackCrushed.getDefaultState(), new ItemStack(cobalt, 1, 0), 0.3f, MeshType.DIAMOND.getID());
             }
 
-            // Mekanism Support
-            ItemOre osmium = oreRegistry.getOreItem("osmium");
-            if (osmium != null) {
-                registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(osmium, 1, 0), 0.05f, MeshType.IRON.getID());
-                registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(osmium, 1, 0), 0.1f, MeshType.DIAMOND.getID());
-            }
-
             // All default Ores
             for (ItemOre ore : oreRegistry.getItemOreRegistry()) {
                 if (ore == ardite || ore == cobalt) continue;
-
+                if(oreRegistry.getSieveBlackList().contains(ore)) continue;
                 registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(ore, 1, 0), 0.2f, MeshType.FLINT.getID());
                 registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(ore, 1, 0), 0.2f, MeshType.IRON.getID());
                 registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(ore, 1, 0), 0.1f, MeshType.DIAMOND.getID());

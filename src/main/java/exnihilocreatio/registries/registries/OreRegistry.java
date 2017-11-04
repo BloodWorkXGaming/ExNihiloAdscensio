@@ -33,12 +33,17 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class OreRegistry extends BaseRegistryList<Ore> {
 
     @Getter
     private List<ItemOre> itemOreRegistry = new ArrayList<>();
+
+    @Getter
+    private Set<ItemOre> sieveBlackList = new HashSet<>(); // A black list of ores to not register
 
     public OreRegistry() {
         super(

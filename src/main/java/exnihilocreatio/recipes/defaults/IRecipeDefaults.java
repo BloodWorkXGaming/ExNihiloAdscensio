@@ -1,8 +1,8 @@
-package exnihilocreatio.registries.manager.compat;
+package exnihilocreatio.recipes.defaults;
 
 import exnihilocreatio.registries.registries.*;
 
-public interface ICompatRegistryDefaults {
+public interface IRecipeDefaults {
     public String getMODID();
 
     default public void registerRecipeDefaults(CompostRegistry registry){};
