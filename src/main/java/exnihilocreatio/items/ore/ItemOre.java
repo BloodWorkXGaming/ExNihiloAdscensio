@@ -73,6 +73,7 @@ public class ItemOre extends Item implements IHasModel, IHasSpecialRegistry {
                 pre = "orepiece";
                 break;
             case 1:
+                // TODO during the next big version change, fix this typo.
                 pre = "orehunk";
                 break;
             case 2:

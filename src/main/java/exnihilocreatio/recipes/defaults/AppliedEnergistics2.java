@@ -33,11 +33,7 @@ public class AppliedEnergistics2 implements IRecipeDefaults {
     @GameRegistry.ObjectHolder("appliedenergistics2:sky_stone_block")
     public static final Block SKY_STONE = null;
 
-    public AppliedEnergistics2(){
-
-    }
-
-    public void registerRecipeDefaults(SieveRegistry registry) {
+    public void registerSieve(SieveRegistry registry) {
         // Sky Stone Dust
         registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(AE_MATERIAL, 1, 45), 0.1f, MeshType.FLINT.getID());
         registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(AE_MATERIAL, 1, 45), 0.2f, MeshType.IRON.getID());
@@ -59,11 +55,11 @@ public class AppliedEnergistics2 implements IRecipeDefaults {
         stack = new ItemStack(AE_MATERIAL, 1, 1);
         registry.register(ModBlocks.skystoneCrushed.getDefaultState(), stack, 0.001f, MeshType.DIAMOND.getID());
     }
-    public void registerRecipeDefaults(HammerRegistry registry) {
+    public void registerHammer(HammerRegistry registry) {
         registry.register(SKY_STONE.getDefaultState(), new ItemStack(ModBlocks.skystoneCrushed, 1), 3, 1.0F, 0.0F);
     }
 
-    public void registerRecipeDefaults(FluidBlockTransformerRegistry registry) {
+    public void registerFluidBlockTransform(FluidBlockTransformerRegistry registry) {
         registry.register(FluidRegistry.LAVA, new ItemInfo(AE_MATERIAL,  45), new ItemInfo(SKY_STONE, 0));
     }
 }

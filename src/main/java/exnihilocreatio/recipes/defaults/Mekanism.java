@@ -14,11 +14,7 @@ public class Mekanism implements IRecipeDefaults {
     @Getter
     public String MODID = "mekanism";
 
-    public Mekanism(){
-
-    }
-
-    public void registerRecipeDefaults(SieveRegistry registry) {
+    public void registerSieve(SieveRegistry registry) {
         ItemOre osmium = ExNihiloRegistryManager.ORE_REGISTRY.getOreItem("osmium");
         if (osmium != null) {
             registry.register(Blocks.GRAVEL.getDefaultState(), new ItemStack(osmium, 1, 0), 0.05f, BlockSieve.MeshType.IRON.getID());
@@ -26,7 +22,7 @@ public class Mekanism implements IRecipeDefaults {
         }
     }
 
-    public void registerRecipeDefaults(OreRegistry registry) {
+    public void registerOreChunks(OreRegistry registry) {
         // Osmium
         registry.register("osmium", new Color("BBDDFF"), null);
         ItemOre ore = ExNihiloRegistryManager.ORE_REGISTRY.getOreItem("osmium");

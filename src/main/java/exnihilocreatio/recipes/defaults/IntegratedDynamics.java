@@ -20,11 +20,7 @@ public class IntegratedDynamics implements IRecipeDefaults {
     @GameRegistry.ObjectHolder("integrateddynamics:menril_sapling")
     public static final Item MENRIL_SAPLING = null;
 
-    public IntegratedDynamics(){
-
-    }
-
-    public void registerRecipeDefaults(SieveRegistry registry) {
+    public void registerSieve(SieveRegistry registry) {
         // TODO: Consider instead using witch water to mutate a normal sapling into a menril sapling.
         registry.register(Blocks.DIRT.getDefaultState(), new ItemStack(MENRIL_SAPLING, 1, 0), 0.02f, MeshType.DIAMOND.getID());
         registry.register(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT), new ItemStack(MENRIL_SAPLING, 1, 0), 0.1f, MeshType.DIAMOND.getID());

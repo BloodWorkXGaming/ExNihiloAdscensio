@@ -16,18 +16,14 @@ public class ExtremeReactors implements IRecipeDefaults {
     @Getter
     public String MODID = "bigreactors"; // Extreme Reactors is a fork of Big Reactors and still uses the same MOD ID
 
-    public ExtremeReactors(){
-
-    }
-
-    public void registerRecipeDefaults(SieveRegistry registry) {
+    public void registerSieve(SieveRegistry registry) {
         ItemOre ore = ExNihiloRegistryManager.ORE_REGISTRY.getOreItem("yellorium");
         if(ore !=null){
             registry.register(ModBlocks.dust.getDefaultState(), new ItemStack(ore, 1, 0), 0.01f, MeshType.DIAMOND.getID());
         }
     }
 
-    public void registerRecipeDefaults(OreRegistry registry) {
+    public void registerOreChunks(OreRegistry registry) {
         // 0 = Yellorium
         Item yellorium = Item.getByNameOrId("bigreactors:ingotmetals");
         if(yellorium != null){
