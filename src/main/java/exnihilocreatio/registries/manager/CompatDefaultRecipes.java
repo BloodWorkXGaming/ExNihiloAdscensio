@@ -17,7 +17,7 @@ public class CompatDefaultRecipes {
         MODS.add(new AppliedEnergistics2());
         MODS.add(new IntegratedDynamics());
         MODS.add(new Mekanism());
-        MODS.add(new ExtremeReactors());
+        MODS.add(new BigReactors());
         MODS.add(new ActuallyAdditions());
     }
 
