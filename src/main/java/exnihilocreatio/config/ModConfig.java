@@ -74,12 +74,14 @@ public class ModConfig {
         public boolean oredictVanillaItems = true;
 
         public boolean oredictExNihiloSeeds = true;
+
     }
 
     public static class Sieve {
         public int sieveSimilarRadius = 2;
         public int autoSieveRadius = 2;
         public boolean setFireToMacroUsers = false;
+        public int meshMaxStackSize = 16;
     }
 
     public static class Compatibility {

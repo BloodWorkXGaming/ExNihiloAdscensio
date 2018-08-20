@@ -2,6 +2,7 @@ package exnihilocreatio.items;
 
 import exnihilocreatio.ExNihiloCreatio;
 import exnihilocreatio.blocks.BlockSieve.MeshType;
+import exnihilocreatio.config.ModConfig;
 import exnihilocreatio.util.Data;
 import exnihilocreatio.util.IHasModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -23,7 +24,7 @@ public class ItemMesh extends Item implements IHasModel {
         this.setHasSubtypes(true);
         this.setUnlocalizedName("item_mesh");
         this.setRegistryName("item_mesh");
-        this.setMaxStackSize(1);
+        this.setMaxStackSize(ModConfig.sieve.meshMaxStackSize);
         this.setCreativeTab(ExNihiloCreatio.tabExNihilo);
         Data.ITEMS.add(this);
     }
@@ -47,6 +48,12 @@ public class ItemMesh extends Item implements IHasModel {
     @Override
     public boolean isEnchantable(ItemStack stack){
         return true;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
+    {
+        return stack.getCount() == 1;
     }
 
     @Override
