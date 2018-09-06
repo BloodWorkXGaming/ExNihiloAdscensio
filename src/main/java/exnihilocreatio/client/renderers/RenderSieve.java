@@ -13,9 +13,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import org.lwjgl.opengl.GL11;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class RenderSieve extends TileEntitySpecialRenderer<TileSieve> {
     @Override

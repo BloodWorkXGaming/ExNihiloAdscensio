@@ -90,6 +90,9 @@ public class ExNihilo implements IRecipeDefaults {
         registry.register("listAllGrain", 0.08f, dirtState, new Color("E3E162"));
         registry.register("listAllseed", 0.08f, dirtState, new Color("35A82A"));
         registry.register("listAllmeatraw", 0.15f, dirtState, new Color("FFA091"));
+
+        // Misc. Modded Items
+        registry.register("dustAsh", 0.125f, dirtState, new Color("C0C0C0"));
     }
 
     @Override

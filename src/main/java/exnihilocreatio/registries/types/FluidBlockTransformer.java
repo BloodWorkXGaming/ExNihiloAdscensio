@@ -2,7 +2,6 @@ package exnihilocreatio.registries.types;
 
 import exnihilocreatio.util.BlockInfo;
 import exnihilocreatio.util.EntityInfo;
-import exnihilocreatio.util.StackInfo;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

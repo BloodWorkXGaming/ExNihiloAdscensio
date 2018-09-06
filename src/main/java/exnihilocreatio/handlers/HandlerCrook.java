@@ -71,8 +71,9 @@ public class HandlerCrook {
         if (stack.getItem() instanceof ICrook)
             return ((ICrook) stack.getItem()).isCrook(stack);
 
-        //if (stack.hasTagCompound() && stack.stackTagCompound.getBoolean("Hammered"))
-        //	return true;
+        // Inspirations compatibility
+        if (stack.getItem().getToolClasses(stack).contains("crook"))
+            return true;
 
         return false;
     }

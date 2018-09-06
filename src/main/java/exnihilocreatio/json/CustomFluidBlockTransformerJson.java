@@ -4,7 +4,6 @@ import com.google.gson.*;
 import exnihilocreatio.registries.types.FluidBlockTransformer;
 import exnihilocreatio.util.BlockInfo;
 import exnihilocreatio.util.EntityInfo;
-import exnihilocreatio.util.StackInfo;
 import net.minecraft.item.crafting.Ingredient;
 
 import java.lang.reflect.Type;

@@ -29,7 +29,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.io.File;
 
-@Mod(modid = ExNihiloCreatio.MODID, name = "Ex Nihilo Creatio", version = ExNihiloCreatio.VERSION, acceptedMinecraftVersions = "[1.12, 1.13)")
+@Mod(modid = ExNihiloCreatio.MODID, name = "Ex Nihilo Creatio", version = ExNihiloCreatio.VERSION, acceptedMinecraftVersions = "[1.12, 1.13)", dependencies = "after:forestry;after:extrabees;after:morebees;after:magicbees;")
 @Mod.EventBusSubscriber
 public class ExNihiloCreatio {
 

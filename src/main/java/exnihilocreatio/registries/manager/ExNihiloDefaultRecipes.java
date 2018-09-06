@@ -26,7 +26,6 @@ public class ExNihiloDefaultRecipes {
     private static class CompostDefaults implements ICompostDefaultRegistryProvider {
         @Override
         public void registerRecipeDefaults(CompostRegistry registry) {
-
             compat.registerCompost(registry);
         }
     }
