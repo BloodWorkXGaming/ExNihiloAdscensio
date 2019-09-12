@@ -50,7 +50,7 @@ minecraft {
     replace "@VERSION@", "$mod_version"
     replaceIn "ExNihiloCreatio.java"
 	
-	clientJvmArgs += "-Dfml.coreMods.load=p455w0rdslib.asm.FMLPlugin,albedo.asm.FMLPlugin"
+	clientJvmArgs += "-Dfml.coreMods.load=p455w0rdslib.asm.FMLPlugin"
 }
 
 repositories
@@ -125,13 +125,16 @@ dependencies
 
     deobfCompile ("CraftTweaker2:CraftTweaker2-MC1120-Main:${mc_major}-${ct2_version}")
 	
+	// DankNull Compat
 	deobfCompile "p455w0rd:p455w0rdslib:${mc_version}-${p455w0rdslib_version}"
 	deobfCompile "p455w0rd.danknull:DankNull:${mc_version}-${danknull_version}"
 
     compileOnly "org.projectlombok:lombok:1.18.0"
 
     // Magneticraft Compat
-    compileOnly "magneticraft:Magneticraft_${mc_major}:${magneticraft_version}:dev"
+	compileOnly "modelloader:modelloader:${modelloader_version}"
+    compileOnly "magneticraft:Magneticraft_${mc_major}:${magneticraft_version}:dev"	
+	
     // Fluid Cows and Clones
     compileOnly "fluid-cows:FluidCows:${fluidcows_version}"
     compileOnly "moo-fluids:MooFluids:${mc_version}:${moofluids_version}"
