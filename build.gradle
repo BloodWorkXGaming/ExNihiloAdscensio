@@ -45,7 +45,7 @@ minecraft {
     version = "${mc_version}-${forge_version}"
     runDir = "run"
 	mappings = "${mappings_version}"
-    useDepAts = true
+    // useDepAts = true
 
     replace "@VERSION@", "$mod_version"
     replaceIn "ExNihiloCreatio.java"
@@ -72,7 +72,7 @@ repositories
     // Required for HWYLA
     maven {
         name "tehnut"
-        url "http://tehnut.info/maven"
+        url "https://maven.tehnut.info"
     }
 
     // Required for TheOneProbe
